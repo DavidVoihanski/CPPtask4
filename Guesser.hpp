@@ -11,7 +11,7 @@ namespace bullpgia{
             Guesser(){
 
             }
-            virtual std::string guess(){}
+            virtual std::string guess(){return "";}
             virtual void startNewGame(uint lenght){}
             virtual void learn(int reply){}
     };

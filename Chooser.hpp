@@ -8,7 +8,7 @@ namespace bullpgia{
             Chooser(){
                 
             }
-            virtual std::string choose(uint length){}
+            virtual std::string choose(uint length){return "";}
             
     };
 }
