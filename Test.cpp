@@ -48,6 +48,27 @@ int main() {
 			testcase.CHECK_EQUAL(play(randy, smarty, 4, 100)<=10, true);  // smarty should always win in at most 10 turns!
 		}
 
+		//My tests********************************************
+		ConstantGuesser g123{"123"};
+		ConstantChooser c222{"222"};
+		testcase.setname("MyTests")
+		.CHECK_EQUAL(play(c1234, g123, 4, 100),101) //Guesser looses by making an illegal guess (too short)
+		.CHECK_EQUAL(play(c1234, g1234, 5, 101), 0)//Chooser looses by choosing an illegal number (too short)
+		.CHECK_OUTPUT(calculateBullAndPgia("1234", "6666"), "0,0")
+		.CHECK_OUTPUT(calculateBullAndPgia("123","222"), "1,0")
+		.CHECK_OUTPUT(calculateBullAndPgia("333","323"), "2,0")
+		.CHECK_OUTPUT(calculateBullAndPgia("1533","5336"), "1,2")
+		.CHECK_OUTPUT(calculateBullAndPgia("1","1"), "1,0")
+		.CHECK_OUTPUT(calculateBullAndPgia("1","9"), "0,0")
+		.CHECK_OUTPUT(calculateBullAndPgia("8409","0498"), "0,4")
+		.CHECK_OUTPUT(calculateBullAndPgia("1212","2121"), "0,4")
+		.CHECK_OUTPUT(calculateBullAndPgia("1212","1221"), "2,2")
+		.CHECK_THROWS(calculateBullAndPgia("1234", "123")) //Guess is too short
+		.CHECK_THROWS(calculateBullAndPgia("123", "1234"))//Guess is too long
+		.CHECK_THROWS(calculateBullAndPgia("1a1", "1a1"))//illegal input
+		.CHECK_THROWS(calculateBullAndPgia("1a1", "123"))//illegal input
+		.CHECK_THROWS(calculateBullAndPgia("123", "1a1"));//illegal input
+
     grade = testcase.grade();
 	} else {
 		testcase.print_signal(signal);

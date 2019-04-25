@@ -4,10 +4,9 @@
 
 namespace bullpgia{
     class Guesser{
-        private:
-           
-        public:
+        protected:
             int length;
+        public:
             virtual std::string guess() = 0;
             virtual void startNewGame(uint lenght){};
             virtual void learn(int reply){};
