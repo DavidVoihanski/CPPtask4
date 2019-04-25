@@ -8,11 +8,8 @@ namespace bullpgia{
            
         public:
             int length;
-            Guesser(){
-
-            }
-            virtual std::string guess(){return "";}
-            virtual void startNewGame(uint lenght){}
-            virtual void learn(int reply){}
+            virtual std::string guess() = 0;
+            virtual void startNewGame(uint lenght){};
+            virtual void learn(int reply){};
     };
 }

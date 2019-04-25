@@ -1,7 +1,8 @@
 #pragma once
 #include "Guesser.hpp"
 namespace bullpgia{
-    class SmartGuesser: public Guesser{
-        
+    class SmartGuesser: public bullpgia::Guesser{
+        public:
+            std::string guess() override;
     };
 }
