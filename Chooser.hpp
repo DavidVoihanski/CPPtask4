@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "calculate.hpp"
 
 namespace bullpgia{
     class Chooser{
