@@ -1,5 +1,8 @@
 #pragma once
 #include <string>
+#include "AnswerObj.hpp"
+using namespace bullpgia;
+
 namespace bullpgia{
-    int calculateBullAndPgia(std::string choice, std::string guess);
+    AnswerObj calculateBullAndPgia(std::string choice, std::string guess);
 }
