@@ -1,3 +1,4 @@
+#pragma once
 #include "AnswerObj.hpp"
 using namespace bullpgia;
 
