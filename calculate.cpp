@@ -22,19 +22,16 @@ AnswerObj bullpgia::calculateBullAndPgia(std::string choice, std::string guess){
 
 uint bullpgia::calcPgia(std::string choice, std::string guess){
     uint length = choice.length();
-    std::string choiceCopy = "";
-    std::string guessCopy = "";
-    choiceCopy.append(choice);
-    guessCopy.append(guess);
+    // std::string choiceCopy = "";
+    // std::string guessCopy = "";
+    // choiceCopy.append(choice);
+    // guessCopy.append(guess);
     uint ans = 0;
     for(int i = 0; i < length; i++){
         for(int j =0; j < length; j++){
             if(choice[i] == guess[j]){
-                // std::cout << "choice: " << choice << " choiceCopy: " << choiceCopy << " guess: " << guess << " guessCopy: " << guessCopy << std::endl;
-                // std::cout << "length: " << choiceCopy.length() << " i: " << i << " j: " << j << " ans: " << ans << std::endl;
-                choiceCopy[i] = 'b';
-                //std::cout << "gothere" << std::endl;
-                guessCopy[j] = 'a';
+                choice[i] = 'b';
+                guess[j] = 'a';
                 ans++;
                 break;
             }
