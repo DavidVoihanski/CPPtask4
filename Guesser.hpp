@@ -4,11 +4,12 @@
 #include "AnswerObj.hpp"
 namespace bullpgia{
     class Guesser{
-        protected:
-            uint length;
         public:
+            uint length;
             virtual std::string guess() = 0;
-            virtual void startNewGame(uint lenght){};
+            virtual void startNewGame(const uint lenght){
+                this->length = lenght;
+            };
             virtual void learn(AnswerObj& reply){};
     };
 }

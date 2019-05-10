@@ -10,7 +10,7 @@ AnswerObj bullpgia::calculateBullAndPgia(std::string choice, std::string guess){
     for(uint i = 0; i < length; i++){
         if(choice[i] == guess[i]){
             choiceCopy.erase(choiceCopy.begin()+i - bull);
-            guessCopy.erase(guessCopy.begin()+i-bull);
+            guessCopy.erase(guessCopy.begin()+i - bull);
             bull++;
         }
     }
@@ -19,13 +19,8 @@ AnswerObj bullpgia::calculateBullAndPgia(std::string choice, std::string guess){
     return answer;
 }   
 
-
 uint bullpgia::calcPgia(std::string choice, std::string guess){
     uint length = choice.length();
-    // std::string choiceCopy = "";
-    // std::string guessCopy = "";
-    // choiceCopy.append(choice);
-    // guessCopy.append(guess);
     uint ans = 0;
     for(int i = 0; i < length; i++){
         for(int j =0; j < length; j++){
@@ -40,22 +35,10 @@ uint bullpgia::calcPgia(std::string choice, std::string guess){
     return ans;
 }
 
-AnswerObj::AnswerObj(){
-    this->setBull(-1);
-    this->setPgia(-1);
-}
-
 AnswerObj::AnswerObj(uint bull, uint pgia){
     this->setBullAndPgia(bull, pgia);
 }
 
-void AnswerObj::setBull(uint bull){
-    this->bull = bull;
-}
-
-void AnswerObj::setPgia(uint pgia){
-    this->pgia = pgia;
-}
 
 void AnswerObj::setBullAndPgia(uint bull, uint pgia){
     this->bull = bull;
