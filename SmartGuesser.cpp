@@ -53,10 +53,10 @@ void SmartGuesser::learn(AnswerObj &ans) {
         for(int i = 0; i < total; i++){ //insert found char the number of times it appears
             this->allCharMessy.push_back(this->lastGuess[0]);
         }
-        if(this->totalCharsFound == this->length) 
+        if(this->totalCharsFound == this->length) //found all of the chars
             this->allDigitsFound = true;
     }//if
-    else{
+    else{   //"allComs" holds every possible combination of the char we found earlier, if one of them is the same as the last one we guessed, delete it
         uint len = this->allComs.size();
         for(uint i = 0; i < len; i++){
             if(this->allComs[i] == this->lastGuess)
@@ -65,8 +65,8 @@ void SmartGuesser::learn(AnswerObj &ans) {
     }//else
 }
 
-
-std::string SmartGuesser::nextSimpleGuess(){
+//Gueesses "0000...."-"9999...." untill we find every char and the number of times it appears
+std::string SmartGuesser::nextSimpleGuess(){ 
     std::string guess = "";
     std::string nextChar = std::to_string(this->numOfGuesses);
     for(int i =0; i < this->length; i++){
@@ -75,6 +75,7 @@ std::string SmartGuesser::nextSimpleGuess(){
     return guess;
 }
 
+//Takes the chars we found and assembles our first guess with said chars
 std::string SmartGuesser::assembleFirstGuess(){
     std::string guess = "";
     for(int i =0; i < this->length; i++){
@@ -91,11 +92,12 @@ void SmartGuesser::swap(char *x, char *y)
     *y = temp;  
 }  
 
-/* Function to print permutations of string  
+/* Function to find permutations of string  
 This function takes three parameters:  
 1. String  
 2. Starting index of the string  
-3. Ending index of the string. */
+3. Ending index of the string. 
+adds each permutation to allCombs*/
 void SmartGuesser::permute(char *a, int l, int r)  
 {  
     int i;  
